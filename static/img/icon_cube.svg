@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
     <path d="M16 4L26 10V22L16 28L6 22V10L16 4Z"
         fill="none"
-        stroke="hsl(35 100% 50%)"
+        stroke="hsl(44 52% 46%)"
         stroke-width="2.2"
         stroke-linejoin="round"/>
 
     <path d="M6 10L16 16L26 10"
         fill="none"
-        stroke="hsl(35 100% 50%)"
+        stroke="hsl(44 52% 46%)"
         stroke-width="2.2"
         stroke-linejoin="round"/>
 
     <path d="M16 16V28"
         fill="none"
-        stroke="hsl(35 100% 50%)"
+        stroke="hsl(44 52% 46%)"
         stroke-width="2.2"
         stroke-linecap="round"/>
 </svg>
