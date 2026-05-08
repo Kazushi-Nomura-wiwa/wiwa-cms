@@ -105,9 +105,7 @@ td {
     overflow: hidden;
     background-image: url("/static/img/wiwa_logo.svg");
     background-repeat: no-repeat;
-    background-position: left center;
     background-size: contain;
-    color: transparent;
     text-indent: 100%;
     white-space: nowrap;
 }
@@ -190,8 +188,7 @@ main {
     color: var(--white);
     margin-bottom: 4rem;
     background-image: url('/static/img/hero_bg.png');
-    background-position: right center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
