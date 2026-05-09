@@ -81,7 +81,7 @@ em {
     transition: opacity 0.25s;
 }
 
-.link:hover::after {
+.link::after {
     content: "";
     position: absolute;
     left: 0;
