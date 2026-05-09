@@ -220,7 +220,6 @@ main {
     background-color: var(--black);
     color: var(--black);
     text-decoration: none !important;
-    font-weight: var(--semibold);
     border-radius: 4px;
 }
 .btn:hover{
