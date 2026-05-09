@@ -204,6 +204,7 @@ main {
 }
 .place,
 .about__subtitle,
-.about__feature-subtitle {
+.about__feature-subtitle
+.product__subtitle, {
     color: var(--gold);
 }
