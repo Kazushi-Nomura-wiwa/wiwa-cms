@@ -77,13 +77,25 @@ em {
 a,
 a:link,
 a:visited {
+    position: relative;
     color: var(--gold);
-    text-decoration: underline;
+    text-decoration: none;
     transition: opacity 0.25s;
 }
-
-a:hover {
-    opacity: 0.5;
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+}
+a:hover::after {
+    transform-origin: left;
+    transform: scaleX(0);
 }
 
 /* ---------- テーブル ---------- */
