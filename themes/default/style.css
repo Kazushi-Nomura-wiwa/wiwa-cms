@@ -190,7 +190,6 @@ main {
 
     width: 100%;
     aspect-ratio: 16 / 9;
-    margin-bottom: 4rem;
 
     color: var(--white);
 
@@ -218,6 +217,7 @@ main {
 .getting-started,
 .latest-posts {
     padding: 0 5%;
+    margin-bottom: 4rem;
 }
 /* ---------- アクセントテキスト ---------- */
 .place,
