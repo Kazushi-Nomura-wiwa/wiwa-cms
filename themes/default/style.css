@@ -239,16 +239,16 @@ main {
 
     text-decoration: none !important;
     transition:
-        background-color 0.25s,
-        color 0.25s,
-        opacity 0.25s;
+        background-color 0.5s,
+        color 0.5s,
+        opacity 0.5s;
 }
 
 .btn::after {
     content: "→";
     margin-left: 0.5rem;
     color: currentColor;
-    transition: transform 0.25s;
+    transition: transform 0.5s;
 }
 
 .btn:hover {
