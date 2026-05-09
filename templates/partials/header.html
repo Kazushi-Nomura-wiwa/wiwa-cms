@@ -12,12 +12,12 @@
         <div class="site-header__sub">
             <nav class="global-nav">
                 <ul class="global-nav__list">
-                    <li class="global-nav__item"><a href="/post" class="global-nav__link">Post</a></li>
+                    <li class="global-nav__item"><a href="/post" class="link global-nav__link">Post</a></li>
                     {% if current_user %}
-                    <li class="global-nav__item"><a href="/admin" class="global-nav__link">Admin</a></li>
-                    <li class="global-nav__item"><a href="/auth/logout" class="global-nav__link">Logout</a></li>
+                    <li class="global-nav__item"><a href="/admin" class="link global-nav__link">Admin</a></li>
+                    <li class="global-nav__item"><a href="/auth/logout" class="link global-nav__link">Logout</a></li>
                     {% else %}
-                    <li class="global-nav__item"><a href="/auth/login" class="global-nav__link">Login</a></li>
+                    <li class="global-nav__item"><a href="/auth/login" class="link global-nav__link">Login</a></li>
                     {% endif %}
                 </ul>
             </nav>
