@@ -66,7 +66,7 @@
                 {% for post in posts %}
                 <li class="post-list__item">
                     <article class="post-card">
-                        <h3 class="post-card__title"><a href="/post/{{ post.slug }}" class="post-list__link">{{ post.title }}</a></h3>
+                        <h3 class="post-card__title"><a href="/post/{{ post.slug }}" class="link post-list__link">{{ post.title }}</a></h3>
                         <p class="post-card__meta">
                             <span class="post-card__date">{{ post.published_at_display }}</span>
                             <span class="post-card__author">{{ post.author_display_name }}</span>
@@ -75,7 +75,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            <p class="latest-posts__more"><a href="/post" class="latest-posts__more-link">一覧を見る</a></p>
+            <p class="latest-posts__more"><a href="/post" class="link latest-posts__more-link">一覧を見る</a></p>
             {% else %}
             <p class="latest-posts__status">まだ投稿がありません。</p>
             {% endif %}
