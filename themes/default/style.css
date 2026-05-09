@@ -157,11 +157,6 @@ main {
     margin-left: auto;
 }
 
-.site-header__sub {
-    border-top: 1px solid var(--ash);
-    border-bottom: 1px solid var(--ash);
-}
-
 /* ---------- ナビゲーション共通 ---------- */
 .global-nav {
     margin-left: 2rem;
@@ -181,11 +176,6 @@ main {
 .admin-nav__list,
 .mypage-nav__list {
     margin-left: 2rem;
-}
-
-.global-nav__item,
-.admin-nav__item,
-.mypage-nav__item {
 }
 
 .global-nav__link,
