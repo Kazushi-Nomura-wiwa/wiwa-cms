@@ -74,6 +74,10 @@ td {
     width: 100%;
     border: 1px solid var(--ash);
 }
+em{
+    font-style: normal;
+    color: var(--gold);
+}
 /* スマホ版 */
 /* ヘッダー */
 .site-header {
