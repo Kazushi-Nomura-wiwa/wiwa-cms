@@ -74,9 +74,7 @@ em {
     color: var(--gold);
 }
 
-.link,
-.link:link,
-.link:visited {
+.link {
     position: relative;
     color: var(--gold);
     text-decoration: none;
