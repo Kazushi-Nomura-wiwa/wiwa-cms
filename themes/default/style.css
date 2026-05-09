@@ -74,14 +74,16 @@ em {
     color: var(--gold);
 }
 
-.link {
+.link,
+.link:link,
+.link:visited {
     position: relative;
     color: var(--gold);
     text-decoration: none;
     transition: opacity 0.25s;
 }
 
-.link::after {
+.link:hover::after {
     content: "";
     position: absolute;
     left: 0;
