@@ -87,7 +87,7 @@ em {
     left: 0;
     bottom: -2px;
     width: 100%;
-    height: 1px;
+    height: 0.125rem;
     background-color: var(--gold);
     transform-origin: left;
     transform: scaleX(1);
