@@ -229,6 +229,10 @@ main {
 }
 .btn::after {
     content: "→";
-    color: hsl(44 52% 46%);
+    color: var(--gold);
     margin-left: 0.5rem;
+}
+
+.btn:hover::after {
+    color: var(--black);
 }
