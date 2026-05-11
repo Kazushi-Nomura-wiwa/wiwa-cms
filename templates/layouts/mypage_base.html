@@ -1,15 +1,15 @@
 <!-- パスとファイル名: templates/html/layouts/mypage_base.html -->
 <!-- Path and filename: templates/html/layouts/mypage_base.html -->
 {% include "partials/head.html" %}
-<body>
+    <body>
     {% include "partials/mypage_header.html" %}
     {% if error_message %}
-    <p class="error">{{ error_message }}</p>
+        <p class="error">{{ error_message }}</p>
     {% endif %}
-    <main>
+        <main>
         {% block content %}{% endblock %}
-    </main>
+        </main>
 
     {% include "partials/footer.html" %}
-</body>
+    </body>
 </html>
