@@ -115,7 +115,9 @@ main {
     width: 100%;
     margin: 2rem auto;
 }
-
+#editorjs{
+    background-color: var(--white);
+}
 /* ---------- ヘッダー ---------- */
 .site-header {
     position: sticky;
