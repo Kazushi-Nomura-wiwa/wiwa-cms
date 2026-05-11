@@ -11,15 +11,15 @@
 
                 <form id="page-form" action="/admin/page/new" method="post">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
-                    <p>
+                    <div>
                         <label for="title">タイトル</label><br>
                         <input type="text" id="title" name="title" value="{{ form_data.title }}">
-                    </p>
+                    </div>
 
-                    <p>
+                    <div>
                         <label for="slug">スラッグ</label><br>
                         <input type="text" id="slug" name="slug" value="{{ form_data.slug }}">
-                    </p>
+                    </div>
 
                     <div>
                         <p>本文</p>
@@ -27,17 +27,17 @@
                         <input type="hidden" id="body_json" name="body_json" value="">
                     </div>
 
-                    <p>
+                    <div>
                         <label for="status">状態</label><br>
                         <select id="status" name="status">
                             <option value="draft" {% if form_data.status == "draft" %}selected{% endif %}>下書き</option>
                             <option value="published" {% if form_data.status == "published" %}selected{% endif %}>公開</option>
                         </select>
-                    </p>
+                    </div>
 
-                    <p>
+                    <div>
                         <button type="submit">作成する</button>
-                    </p>
+                    </div>
                 </form>
             </section>
 
