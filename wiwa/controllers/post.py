@@ -36,7 +36,7 @@
 from wiwa.config import POSTS_PER_PAGE
 from wiwa.core.i18n import t
 from wiwa.core.renderer import TemplateRenderer
-from wiwa.core.response import html, not_found
+from wiwa.core.response import Response, not_found
 from wiwa.db.post_repository import PostRepository
 from wiwa.services.editorjs_service import EditorJSService
 from wiwa.services.post_view_service import PostViewService
@@ -50,9 +50,14 @@ renderer = TemplateRenderer()
 # Post repository
 post_repo = PostRepository()
 
+# 投稿表示サービス
+# Post view service
+post_view_service = PostViewService()
+
 # Editor.js変換サービス
 # Editor.js conversion service
 editorjs_service = EditorJSService()
+
 
 def index(request, route=None):
     """
@@ -60,8 +65,6 @@ def index(request, route=None):
     Render post list page
     """
 
-    # ページ番号取得
-    # Get page number
     try:
         page = int(request.query.get("page", 1))
     except (TypeError, ValueError):
@@ -70,29 +73,15 @@ def index(request, route=None):
     if page < 1:
         page = 1
 
-    # ページネーション計算
-    # Pagination calculation
     per_page = POSTS_PER_PAGE
     skip = (page - 1) * per_page
 
-    # 投稿取得
-    # Fetch posts
     posts = post_repo.list_published(limit=per_page, skip=skip)
-
-    # 表示用変換
-    # Convert posts into template-friendly data
     posts = post_view_service.build_post_list(posts)
 
-    # 総件数取得
-    # Get total count
     total = post_repo.count_published()
-
-    # 総ページ数計算
-    # Calculate total pages
     total_pages = (total + per_page - 1) // per_page if total > 0 else 1
 
-    # テンプレート描画
-    # Render template
     body = renderer.render_route(
         route,
         "html/post/index.html",
@@ -107,9 +96,7 @@ def index(request, route=None):
         request=request,
     )
 
-    # HTMLレスポンス返却
-    # Return HTML response
-    return html(body)
+    return Response(body=body)
 
 
 def slug(request, route=None, slug=None):
@@ -118,25 +105,15 @@ def slug(request, route=None, slug=None):
     Render post detail page
     """
 
-    # slugから投稿取得
-    # Fetch post by slug
     post = post_repo.find_published_by_slug(slug)
 
-    # 投稿が存在しない場合
-    # If post not found
     if not post:
         return not_found()
 
-    # 表示用変換
-    # Convert post into template-friendly data
-    # Editor.js JSONをHTMLへ変換
-    # Convert Editor.js JSON to HTML
     post["body_html"] = editorjs_service.build_html(
         post.get("body_json", "")
     )
 
-    # テンプレート描画
-    # Render template
     body = renderer.render_route(
         route,
         "html/post/slug.html",
@@ -147,6 +124,4 @@ def slug(request, route=None, slug=None):
         request=request,
     )
 
-    # HTMLレスポンス返却
-    # Return HTML response
-    return html(body)
+    return Response(body=body)
