@@ -211,7 +211,7 @@ main {
     display: flex;
     gap: 1rem;
 }
-/* ---------- サービス ---------- */
+/* ---------- 間隔/余白 ---------- */
 .hero,
 .services,
 .product,
@@ -261,5 +261,5 @@ main {
 }
 
 .btn:hover::after {
-    transform: translateX(0.25rem);
+    transform: translateX(0.5rem);
 }
