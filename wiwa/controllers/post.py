@@ -106,7 +106,6 @@ def slug(request, route=None, slug=None):
     """
 
     post = post_repo.find_published_by_slug(slug)
-    print(post)
 
     if not post:
         return not_found()
@@ -114,9 +113,7 @@ def slug(request, route=None, slug=None):
     post["body_html"] = editorjs_service.build_html(
         post.get("body_json", "")
     )
-
-    print(post["body_html"])
-    
+  
     body = renderer.render_route(
         route,
         "html/post/slug.html",

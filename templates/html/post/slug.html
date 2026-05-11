@@ -23,7 +23,7 @@
         {% endif %}
 
         <div class="post__body">
-            {{ post.body_html }}
+            {{ post.body_html | safe }}
         </div>
     </article>
 
