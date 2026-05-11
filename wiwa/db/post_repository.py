@@ -286,7 +286,7 @@ class PostRepository:
         result = self.collection.delete_one({"_id": ObjectId(post_id)})
         return result.deleted_count > 0
     
-    def _normalize_slug(self, value: str) -> str:
+    def normalize_slug(self, value: str) -> str:
         """
         スラッグ正規化
         Normalize slug
