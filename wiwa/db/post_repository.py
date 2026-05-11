@@ -316,3 +316,29 @@ class PostRepository:
         value = re.sub(r"-+", "-", value)
 
         return value.strip("-")
+    
+        def slug_exists(
+            self,
+            slug: str,
+            exclude_post_id: str | None = None,
+        ) -> bool:
+            """
+            スラッグ存在確認
+            Check whether slug already exists
+            """
+
+            query = {
+                "slug": slug,
+                "status": {
+                    "$ne": "trash"
+                },
+            }
+
+            # 自分自身は除外
+            # Exclude current post
+            if exclude_post_id and ObjectId.is_valid(exclude_post_id):
+                query["_id"] = {
+                    "$ne": ObjectId(exclude_post_id)
+                }
+
+            return self.collection.count_documents(query) > 0
