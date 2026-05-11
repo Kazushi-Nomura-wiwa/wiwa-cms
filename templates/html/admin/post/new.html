@@ -9,7 +9,7 @@
                     <p>{{ error_message }}</p>
                 {% endif %}
 
-                <form action="{{ action }}" method="post">
+                <form id="page-form" action="/admin/post/new" method="post">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
                     <div>
