@@ -285,3 +285,34 @@ class PostRepository:
 
         result = self.collection.delete_one({"_id": ObjectId(post_id)})
         return result.deleted_count > 0
+    
+    def _normalize_slug(self, value: str) -> str:
+        """
+        スラッグ正規化
+        Normalize slug
+        """
+
+        value = unicodedata.normalize("NFKC", value or "")
+        value = value.strip().lower()
+
+        # 空白 → ハイフン
+        # Spaces to hyphen
+        value = re.sub(r"\s+", "-", value)
+
+        # スラッシュ除去
+        # Remove slashes
+        value = re.sub(r"/+", "-", value)
+
+        # 使用可能文字だけ許可
+        # Keep allowed characters
+        value = re.sub(
+            r"[^a-z0-9\-_ぁ-んァ-ヶ一-龠々ー]",
+            "",
+            value,
+        )
+
+        # ハイフン連続除去
+        # Collapse multiple hyphens
+        value = re.sub(r"-+", "-", value)
+
+        return value.strip("-")
