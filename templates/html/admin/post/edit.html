@@ -14,32 +14,32 @@
                     <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
                     <div>
-                        <label for="title">title</label><br>
+                        <label for="title">タイトル</label><br>
                         <input id="title" type="text" name="title" value="{{ form.title }}" style="width: 40rem;">
                     </div>
 
                     <div>
-                        <label for="tags">tags</label><br>
+                        <label for="tags">タグ</label><br>
                         <input id="tags" type="text" name="tags" value="{{ form.tags }}" style="width: 40rem;">
                         <p>タグは全角または半角スペース区切りで入力します。</p>
                     </div>
 
                     <div>
-                        <label for="status">status</label><br>
-                        <select id="status" name="status">
-                            <option value="published" {% if form.status == "published" %}selected{% endif %}>published</option>
-                            <option value="draft" {% if form.status == "draft" %}selected{% endif %}>draft</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="body">body</label><br>
+                        <label for="body">本文</label><br>
                         <div id="editorjs"></div>
                         <input type="hidden" id="body_json" name="body_json" value="">
 
                         <script id="editorjs-initial-data" type="application/json">
                         {{ form.body_json | safe }}
                         </script>
+                    </div>
+
+                    <div>
+                        <label for="status">状態</label><br>
+                        <select id="status" name="status">
+                            <option value="published" {% if form.status == "published" %}selected{% endif %}>published</option>
+                            <option value="draft" {% if form.status == "draft" %}selected{% endif %}>draft</option>
+                        </select>
                     </div>
 
                     <div>
