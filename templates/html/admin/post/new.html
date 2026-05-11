@@ -23,11 +23,11 @@
             <p>タグは全角または半角スペース区切りで入力します。</p>
         </div>
 
-<div>
-    <label for="body">本文</label><br>
-    <div id="editorjs"></div>
-    <input type="hidden" id="body_json" name="body_json" value='{{ form.body_json | default("{}") | safe }}'>
-</div>
+        <div>
+            <label for="body">本文</label><br>
+            <div id="editorjs"></div>
+            <input type="hidden" id="body_json" name="body_json" value="">
+        </div>
         <div>
             <label for="status">状態</label><br>
             <select id="status" name="status">
