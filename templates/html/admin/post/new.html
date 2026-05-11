@@ -4,6 +4,37 @@
 {% block content %}
 <section>
     <h2>{{ title }}</h2>
-    {% include "html/admin/post/form.html" %}
+
+    <form action="{{ action }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+        <div>
+            <label for="title">title</label><br>
+            <input id="title" type="text" name="title" value="{{ form.title }}" style="width: 40rem;">
+        </div>
+
+        <div>
+            <label for="tags">tags</label><br>
+            <input id="tags" type="text" name="tags" value="{{ form.tags }}" style="width: 40rem;">
+            <p>タグは全角または半角スペース区切りで入力します。</p>
+        </div>
+
+        <div>
+            <label for="status">status</label><br>
+            <select id="status" name="status">
+                <option value="published" {% if form.status == "published" %}selected{% endif %}>published</option>
+                <option value="draft" {% if form.status == "draft" %}selected{% endif %}>draft</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="body">body</label><br>
+            <textarea id="body" name="body" rows="16" style="width: 40rem;">{{ form.body }}</textarea>
+        </div>
+
+        <div>
+            <button type="submit">{{ submit_label }}</button>
+        </div>
+    </form>
 </section>
 {% endblock %}
