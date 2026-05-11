@@ -77,6 +77,7 @@ from wiwa.config import TRASH_RETENTION_DAYS
 from wiwa.core.i18n import t
 from wiwa.core.renderer import TemplateRenderer
 from wiwa.core.response import html, not_found, redirect
+from wiwa.services.editorjs_service import EditorJSService
 from wiwa.services.post_form_service import (
     current_user_info,
     empty_post_form,
@@ -91,6 +92,10 @@ from wiwa.services.post_service import PostService
 # テンプレートレンダラー
 # Template renderer
 renderer = TemplateRenderer()
+
+# Editor.js変換サービス
+# Editor.js conversion service
+editorjs_service = EditorJSService()
 
 # 投稿サービス
 # Post service
