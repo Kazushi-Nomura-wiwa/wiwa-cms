@@ -203,7 +203,7 @@ def new(request, route=None, **params):
     # Create post
     post_service.create_post(
         title=form["title"],
-        body=form["body"],
+        body_json=form["body_json"],
         author_id=author_id,
         author_name=author_name,
         status=form["status"],
@@ -299,7 +299,7 @@ def update(request, route=None, id=None, **params):
     ok = post_service.update_post(
         post_id=str(post.get("_id")),
         title=form["title"],
-        body=form["body"],
+        body_json=form["body_json"],
         slug=post.get("slug", "") or "",
         author_id=author_id,
         author_name=author_name,

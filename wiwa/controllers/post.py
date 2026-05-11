@@ -38,6 +38,7 @@ from wiwa.core.i18n import t
 from wiwa.core.renderer import TemplateRenderer
 from wiwa.core.response import html, not_found
 from wiwa.db.post_repository import PostRepository
+from wiwa.services.editorjs_service import EditorJSService
 from wiwa.services.post_view_service import PostViewService
 
 
@@ -49,10 +50,9 @@ renderer = TemplateRenderer()
 # Post repository
 post_repo = PostRepository()
 
-# 投稿表示用サービス
-# Post view service
-post_view_service = PostViewService()
-
+# Editor.js変換サービス
+# Editor.js conversion service
+editorjs_service = EditorJSService()
 
 def index(request, route=None):
     """
@@ -129,7 +129,11 @@ def slug(request, route=None, slug=None):
 
     # 表示用変換
     # Convert post into template-friendly data
-    post = post_view_service.build_post(post)
+    # Editor.js JSONをHTMLへ変換
+    # Convert Editor.js JSON to HTML
+    post["body_html"] = editorjs_service.build_html(
+        post.get("body_json", "")
+    )
 
     # テンプレート描画
     # Render template

@@ -5,22 +5,32 @@
 <section>
     <h2>{{ title }}</h2>
 
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
     <form action="{{ action }}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
         <div>
-            <label for="title">title</label><br>
+            <label for="title">タイトル</label><br>
             <input id="title" type="text" name="title" value="{{ form.title }}" style="width: 40rem;">
         </div>
 
         <div>
-            <label for="tags">tags</label><br>
+            <label for="tags">タグ</label><br>
             <input id="tags" type="text" name="tags" value="{{ form.tags }}" style="width: 40rem;">
             <p>タグは全角または半角スペース区切りで入力します。</p>
         </div>
 
         <div>
-            <label for="status">status</label><br>
+            <label for="body">本文</label><br>
+            <div id="editorjs"></div>
+            <input type="hidden" id="body_json" name="body_json" value='{{ form.body_json | tojson | safe }}'>
+        </div>
+
+        <div>
+            <label for="status">状態</label><br>
             <select id="status" name="status">
                 <option value="published" {% if form.status == "published" %}selected{% endif %}>published</option>
                 <option value="draft" {% if form.status == "draft" %}selected{% endif %}>draft</option>
@@ -28,13 +38,15 @@
         </div>
 
         <div>
-            <label for="body">body</label><br>
-            <textarea id="body" name="body" rows="16" style="width: 40rem;">{{ form.body }}</textarea>
-        </div>
-
-        <div>
             <button type="submit">{{ submit_label }}</button>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+    <script src="/static/js/page_editor.js"></script>
+{% endblock %}
 </section>
 {% endblock %}
