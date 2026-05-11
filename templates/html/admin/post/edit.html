@@ -34,7 +34,8 @@
 
                     <div>
                         <label for="body">body</label><br>
-                        <textarea id="body" name="body" rows="16" style="width: 40rem;">{{ form.body }}</textarea>
+                        <div id="editorjs"></div>
+                        <input type="hidden" id="body_json" name="body_json" value="">
 
                         <script id="editorjs-initial-data" type="application/json">
                         {{ form.body_json | safe }}
