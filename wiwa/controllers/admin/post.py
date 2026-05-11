@@ -92,6 +92,9 @@ def new(request, route=None, **params):
         form = submitted_post_form(request)
         error = validate_post_form(form)
 
+        print("POST FORM:", form)
+        print("POST ERROR:", error)
+
         if error:
             body = renderer.render_route(
                 route,
@@ -105,7 +108,6 @@ def new(request, route=None, **params):
                 },
                 request=request,
             )
-            print(error)
             return Response(body=body, status="400 Bad Request")
 
         author_id, author_name = current_user_info(request)
