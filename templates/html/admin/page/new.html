@@ -2,49 +2,49 @@
 <!-- Path and filename: templates/html/admin/page/new.html -->   
 {% extends "layouts/admin_base.html" %}
 {% block content %}
-    <section>
-        <h2>{{ title }}</h2>
+        <section>
+            <h2>{{ title }}</h2>
 
-        {% if error_message %}
-            <p>{{ error_message }}</p>
-        {% endif %}
+            {% if error_message %}
+                <p>{{ error_message }}</p>
+            {% endif %}
 
-        <form id="page-form" action="/admin/page/new" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
-            <p>
-                <label for="title">タイトル</label><br>
-                <input type="text" id="title" name="title" value="{{ form_data.title }}">
-            </p>
+            <form id="page-form" action="/admin/page/new" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <p>
+                    <label for="title">タイトル</label><br>
+                    <input type="text" id="title" name="title" value="{{ form_data.title }}">
+                </p>
 
-            <p>
-                <label for="slug">スラッグ</label><br>
-                <input type="text" id="slug" name="slug" value="{{ form_data.slug }}">
-            </p>
+                <p>
+                    <label for="slug">スラッグ</label><br>
+                    <input type="text" id="slug" name="slug" value="{{ form_data.slug }}">
+                </p>
 
-            <div>
-                <p>本文</p>
-                <div id="editorjs"></div>
-                <input type="hidden" id="body_json" name="body_json" value="">
-            </div>
+                <div>
+                    <p>本文</p>
+                    <div id="editorjs"></div>
+                    <input type="hidden" id="body_json" name="body_json" value="">
+                </div>
 
-            <p>
-                <label for="status">状態</label><br>
-                <select id="status" name="status">
-                    <option value="draft" {% if form_data.status == "draft" %}selected{% endif %}>下書き</option>
-                    <option value="published" {% if form_data.status == "published" %}selected{% endif %}>公開</option>
-                </select>
-            </p>
+                <p>
+                    <label for="status">状態</label><br>
+                    <select id="status" name="status">
+                        <option value="draft" {% if form_data.status == "draft" %}selected{% endif %}>下書き</option>
+                        <option value="published" {% if form_data.status == "published" %}selected{% endif %}>公開</option>
+                    </select>
+                </p>
 
-            <p>
-                <button type="submit">作成する</button>
-            </p>
-        </form>
-    </section>
+                <p>
+                    <button type="submit">作成する</button>
+                </p>
+            </form>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
-    <script src="/static/js/page_editor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+        <script src="/static/js/page_editor.js"></script>
 {% endblock %}
