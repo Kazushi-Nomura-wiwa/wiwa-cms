@@ -105,6 +105,7 @@ def new(request, route=None, **params):
                 },
                 request=request,
             )
+            print(error)
             return Response(body=body, status="400 Bad Request")
 
         author_id, author_name = current_user_info(request)
