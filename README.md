@@ -1,4 +1,4 @@
-# WiWA
+# WiWA CMS
 
 No magic. Just code.()
 One path. One route. One truth.
